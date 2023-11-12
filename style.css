@@ -104,3 +104,66 @@ button:hover {
     background-position: center;
     transform: scaleX(-1);
 }
+
+/* Estilo para o player de áudio no rodapé */
+.audio-player {
+    position: fixed;
+    bottom: 20px;
+    /* Adicione algum valor para definir a distância do rodapé */
+    right: 8px; /* Afasta o player da lateral em 8px */
+    background-color: #252525;
+    /* Fundo branco */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 5px;
+    /* Espaçamento interno reduzido */
+    box-shadow: 0 0 10px rgba(241, 220, 220, 0.3);
+    /* Sombra */
+    display: flex;
+    align-items: center;
+    width: 185px;
+    /* Largura do player reduzida, ajuste conforme necessário */
+}
+
+/* Estilo para o áudio dentro do player */
+.audio-player audio {
+    width: 100%;
+    border-radius: 9px;
+    /* Bordas arredondadas para o áudio */
+    background-color: #ffffff;
+    /* Cor de fundo do player */
+}
+
+/* Estilo para os controles do áudio */
+.audio-player audio::-webkit-media-controls {
+    background-color: #000000;
+    /* Controles pretos */
+    border-radius: 2px;
+    /* Bordas arredondadas para os controles */
+}
+
+/* Cor do texto dentro do player */
+.audio-player audio::-webkit-media-controls-enclosure {
+    color: #ffffff;
+    /* Cor do texto nos controles */
+}
+
+/* Cor do tempo no controle de progresso */
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+    color: #ffffff;
+    /* Cor do tempo nos controles */
+}
+
+/* Cor do indicador de volume */
+.audio-player audio::-webkit-media-controls-volume-slider-thumb {
+    background-color: #000000;
+    /* Cor do indicador de volume */
+}
+
+/* Cor da barra de progresso de volume */
+.audio-player audio::-webkit-media-controls-volume-slider {
+    background-color: #ffffff;
+    /* Cor de fundo da barra de progresso de volume */
+}
+
