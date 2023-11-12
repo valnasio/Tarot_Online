@@ -1,10 +1,6 @@
-// script.js
 const cardContainer = document.getElementById('card-container');
 const shuffleButton = document.getElementById('shuffle-button');
 const resetButton = document.getElementById('reset-button');
-const muteButton = document.getElementById('mute-button');
-const volumeSlider = document.getElementById('volume-slider');
-const backgroundMusic = document.getElementById('background-music');
 
 let allImages = Array.from({ length: 78 }, (_, i) => i + 1); // Array de números representando as imagens
 let cards = [];
@@ -38,27 +34,22 @@ function shuffle(array) {
 }
 
 function shuffleCards() {
-    // backgroundMusic.pause();
-    // backgroundMusic.currentTime = 0; // Reinicia o tempo da música para o início
-
-    cards.forEach((card, index) => {
+    // Adicionado para exibir primeiro o back antes de embaralhar as imagens
+    cards.forEach(card => {
         card.classList.remove('flipped');
         card.querySelector('.front').style.display = 'none';
         card.querySelector('.back').style.display = 'block';
-
-        const randomNumber = allImages[index];
-        card.dataset.imageNumber = randomNumber;
     });
 
     setTimeout(() => {
+        shuffle(allImages);
         updateCardImages();
-        backgroundMusic.play();
-    }, 500);
+    }, 500); // Tempo de espera para exibir o back antes de embaralhar as imagens
 }
 
 function updateCardImages() {
-    cards.forEach((card) => {
-        const randomNumber = card.dataset.imageNumber;
+    cards.forEach((card, index) => {
+        const randomNumber = allImages[index];
         card.querySelector('.front').style.backgroundImage = `url('images/c${randomNumber}.png')`;
     });
 }
@@ -73,6 +64,7 @@ function resetGame(askForQuantity = true) {
         }
     }
 
+    // Remover todas as cartas existentes
     cards.forEach(card => card.remove());
     cards = [];
 
@@ -83,32 +75,19 @@ function resetGame(askForQuantity = true) {
         cards.push(card);
     }
 
+    // Zerar a quantidade para que seja solicitada novamente no próximo reset
     numberOfCards = null;
 }
 
 function flipCard(card) {
     card.classList.toggle('flipped');
+    // Adicionado para garantir que a classe 'flipped' só altere o estado, sem alterar o conteúdo
     card.querySelector('.front').style.display = card.classList.contains('flipped') ? 'block' : 'none';
     card.querySelector('.back').style.display = card.classList.contains('flipped') ? 'none' : 'block';
-
-    if (card.classList.contains('flipped')) {
-        const randomNumber = card.dataset.imageNumber;
-        card.querySelector('.front').style.backgroundImage = `url('images/c${randomNumber}.png')`;
-    }
-}
-
-function toggleMute() {
-    backgroundMusic.muted = !backgroundMusic.muted;
-}
-
-function adjustVolume() {
-    backgroundMusic.volume = volumeSlider.value / 100;
 }
 
 shuffleButton.addEventListener('click', shuffleCards);
 resetButton.addEventListener('click', () => resetGame(true));
-muteButton.addEventListener('click', toggleMute);
-volumeSlider.addEventListener('input', adjustVolume);
 
 // Pede a quantidade de cartas apenas na primeira vez
 resetGame(false);
