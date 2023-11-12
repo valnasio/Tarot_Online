@@ -31,38 +31,40 @@ function shuffle(array) {
     }
 }
 
-function resetCards() {
+async function resetCards() {
     shuffle(allImages);
 
-    cards.forEach((card, index) => {
-        let imageName = allImages[index];
-        imageName = findValidImage(imageName, index);
-
+    for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const imageName = await findValidImage(allImages[i], i);
         card.querySelector('.front').style.backgroundImage = `url('images/${imageName}')`;
         card.classList.remove('flipped');
         card.querySelector('.front').style.display = 'none';
         card.querySelector('.back').style.display = 'block';
-    });
-}
-
-function findValidImage(imageName, currentIndex) {
-    const imagePath = `images/${imageName}`;
-    const imageExists = new Image();
-    imageExists.src = imagePath;
-
-    if (!imageExists.complete || typeof imageExists.naturalWidth === "undefined" || imageExists.naturalWidth === 0 || isImageAttached(imageName, currentIndex)) {
-        const validImages = allImages.filter(img => !isImageAttached(img) && doesImageExist(img));
-        return validImages[Math.floor(Math.random() * validImages.length)];
     }
-
-    return imageName;
 }
 
-function doesImageExist(imageName) {
+async function findValidImage(imageName, currentIndex) {
     const imagePath = `images/${imageName}`;
-    const imageExists = new Image();
-    imageExists.src = imagePath;
-    return imageExists.complete && typeof imageExists.naturalWidth !== "undefined" && imageExists.naturalWidth !== 0;
+
+    try {
+        await loadImage(imagePath);
+        if (isImageAttached(imageName, currentIndex)) {
+            return await findValidImage(allImages[Math.floor(Math.random() * allImages.length)], currentIndex);
+        }
+        return imageName;
+    } catch (error) {
+        return await findValidImage(allImages[Math.floor(Math.random() * allImages.length)], currentIndex);
+    }
+}
+
+function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+    });
 }
 
 function isImageAttached(imageName, currentIndex) {
@@ -74,19 +76,17 @@ function flipCard(card) {
     card.querySelector('.front').style.display = 'block';
     card.querySelector('.back').style.display = 'none';
 
-    //if (cards.every(card => card.classList.contains('flipped'))) {
-    //setTimeout(() => {
-    // resetCards();
-    // }, 1000);
-    //  }
+    // Add your logic for checking all cards flipped and resetting if needed
 }
 
-
-for (let i = 0; i < 4; i++) {
-    const imageName = allImages[i];
-    const card = createCard(imageName);
-    cardContainer.appendChild(card);
-    cards.push(card);
+async function initialize() {
+    for (let i = 0; i < 4; i++) {
+        const imageName = allImages[i];
+        const card = createCard(imageName);
+        cardContainer.appendChild(card);
+        cards.push(card);
+    }
 }
 
+initialize();
 resetButton.addEventListener('click', resetCards);
