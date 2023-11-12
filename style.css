@@ -104,24 +104,80 @@ button:hover {
     background-position: center;
     transform: scaleX(-1);
 }
+/* Estilo para o player de áudio no rodapé */
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    /* Fundo branco */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 10px;
+    /* Espaçamento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+    display: flex;
+    align-items: center;
+    width: 100px;
+    /* Largura do player, ajuste conforme necessário */
+}
+
+/* Estilo para o áudio dentro do player */
+.audio-player audio {
+    width: 100%;
+    border-radius: 5px;
+    /* Bordas arredondadas para o áudio */
+    background-color: #ffffff;
+    /* Cor de fundo do player */
+}
+
+/* Estilo para o player de áudio no rodapé */
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    /* Fundo branco */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 5px;
+    /* Espaçamento interno reduzido */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+    display: flex;
+    align-items: center;
+    width: 150px;
+    /* Largura do player reduzida, ajuste conforme necessário */
+}
+
+/* Estilo para o áudio dentro do player */
+.audio-player audio {
+    width: 100%;
+    border-radius: 5px;
+    /* Bordas arredondadas para o áudio */
+    background-color: #ffffff;
+    /* Cor de fundo do player */
+}
 
 /* Estilo para o player de áudio no rodapé */
 .audio-player {
     position: fixed;
     bottom: 20px;
     /* Adicione algum valor para definir a distância do rodapé */
-    right: 8px; /* Afasta o player da lateral em 8px */
-    background-color: #252525;
+    right: 8px;
+    /* Afasta o player da lateral em 8px */
+
     /* Fundo branco */
     border-radius: 10px;
     /* Bordas arredondadas */
     padding: 5px;
     /* Espaçamento interno reduzido */
-    box-shadow: 0 0 10px rgba(241, 220, 220, 0.3);
+    box-shadow: 0 0 10px rgba(226, 217, 217, 0.801);
     /* Sombra */
     display: flex;
     align-items: center;
-    width: 185px;
+    width: 100px;
     /* Largura do player reduzida, ajuste conforme necessário */
 }
 
@@ -166,4 +222,3 @@ button:hover {
     background-color: #ffffff;
     /* Cor de fundo da barra de progresso de volume */
 }
-
