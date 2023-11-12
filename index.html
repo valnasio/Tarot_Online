@@ -17,7 +17,14 @@
         <button id="shuffle-button">EMBARALHAR</button>
         <button id="reset-button">INICIAR</button>
     </div>
-    <audio src="sounds/musica.mp3" controls autoplay></audio>
+    
+    <div class="audio-player">
+        <audio preload="metadata" autoplay muted controls loop>
+            <source src="/sounds/musica.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    
     <script src="script.js"></script>
 </body>
 
