@@ -1,8 +1,9 @@
 const cardContainer = document.getElementById('card-container');
 const resetButton = document.querySelector('button');
 
-const allImages = Array.from({ length: 78 }, (_, i) => `c${i + 1}.png`);
+let allImages = Array.from({ length: 78 }, (_, i) => `c${i + 1}.png`);
 let cards = [];
+let numberOfCards;
 
 function createCard(image) {
     const card = document.createElement('div');
@@ -31,56 +32,23 @@ function shuffle(array) {
     }
 }
 
-async function resetCards() {
+function resetGame() {
+    const numberOfCardsString = prompt("Digite a quantidade de cartas (máximo 78):");
+    numberOfCards = parseInt(numberOfCardsString);
+
+    if (!numberOfCardsString || isNaN(numberOfCards) || numberOfCards < 1 || numberOfCards > 78) {
+        alert("Por favor, insira um número válido de cartas.");
+        return;
+    }
+
+    allImages = Array.from({ length: 78 }, (_, i) => `c${i + 1}.png`); // Resetar todas as imagens
     shuffle(allImages);
 
-    for (let i = 0; i < cards.length; i++) {
-        const card = cards[i];
-        const imageName = await findValidImage(allImages[i], i);
-        card.querySelector('.front').style.backgroundImage = `url('images/${imageName}')`;
-        card.classList.remove('flipped');
-        card.querySelector('.front').style.display = 'none';
-        card.querySelector('.back').style.display = 'block';
-    }
-}
+    // Remover todas as cartas existentes
+    cards.forEach(card => card.remove());
+    cards = [];
 
-async function findValidImage(imageName, currentIndex) {
-    const imagePath = `images/${imageName}`;
-
-    try {
-        await loadImage(imagePath);
-        if (isImageAttached(imageName, currentIndex)) {
-            return await findValidImage(allImages[Math.floor(Math.random() * allImages.length)], currentIndex);
-        }
-        return imageName;
-    } catch (error) {
-        return await findValidImage(allImages[Math.floor(Math.random() * allImages.length)], currentIndex);
-    }
-}
-
-function loadImage(src) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
-    });
-}
-
-function isImageAttached(imageName, currentIndex) {
-    return cards.some((card, index) => index !== currentIndex && card.querySelector('.front').style.backgroundImage.includes(imageName));
-}
-
-function flipCard(card) {
-    card.classList.add('flipped');
-    card.querySelector('.front').style.display = 'block';
-    card.querySelector('.back').style.display = 'none';
-
-    // Add your logic for checking all cards flipped and resetting if needed
-}
-
-async function initialize() {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < numberOfCards; i++) {
         const imageName = allImages[i];
         const card = createCard(imageName);
         cardContainer.appendChild(card);
@@ -88,5 +56,28 @@ async function initialize() {
     }
 }
 
-initialize();
-resetButton.addEventListener('click', resetCards);
+function resetCards() {
+    shuffle(allImages);
+
+    // Remover todas as cartas existentes
+    cards.forEach(card => card.remove());
+    cards = [];
+
+    for (let i = 0; i < numberOfCards; i++) {
+        const imageName = allImages[i];
+        const card = createCard(imageName);
+        cardContainer.appendChild(card);
+        cards.push(card);
+    }
+}
+
+function flipCard(card) {
+    card.classList.add('flipped');
+    card.querySelector('.front').style.display = 'block';
+    card.querySelector('.back').style.display = 'none';
+
+    // Adicione sua lógica para verificar se todas as cartas foram viradas e redefinir, se necessário
+}
+
+resetButton.addEventListener('click', resetGame);
+resetGame();  // Chama resetGame no início para pedir a quantidade de cartas ao abrir a página
