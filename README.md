@@ -1,5 +1,5 @@
 # Tarot_Online
-Projeto está sendo cirado ainda 
+Projeto em fase de elaborações e testes 
 
 pages: 
 https://valnasio.github.io/Tarot_Online/
