@@ -6,9 +6,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    /* Remova a propriedade background-image aqui */
 }
-
 
 .background {
     width: 100%;
@@ -17,38 +15,34 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    /* Adicione a imagem de fundo com o mesmo caminho da sua imagem original */
     background-image: url('./images/fundo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-   
+    filter: blur(4px);
 }
 
-/*teste*/
 .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 3vw;
-    /* Ajustado para 120% */
 }
 
 .card {
     width: 293px;
     height: 540px;
-    /* Ajustado para 120% */
     margin: 1.3vw;
     cursor: pointer;
     border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     background-color: rgba(0, 0, 0, 0);
-    /* Cor de fundo das cartas, ajuste conforme necessário */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    perspective: 1000px;
 }
 
 .front,
@@ -70,8 +64,6 @@ body {
     background-position: center;
 }
 
-
-
 .card.flipped {
     transform: rotateY(180deg);
 }
@@ -79,17 +71,13 @@ body {
 .button-container {
     text-align: center;
     margin-top: 3vw;
-    /* Ajustado para 120% */
 }
 
 button {
     background: linear-gradient(to bottom, #000000, #110e0e);
-    /* Degrade preto para o botão */
     color: rgb(240, 239, 238);
     padding: 1.2vw 2.4vw;
-    /* Ajustado para 120% */
     font-size: 1.2vw;
-    /* Ajustado para 120% */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -98,12 +86,9 @@ button {
 
 button:hover {
     background: linear-gradient(to bottom, #1c1c1c, #383838);
-    /* Efeito hover */
 }
 
 @media (max-width: 600px) {
-
-    /* Ajustes para telas menores */
     .card-container {
         flex-direction: column;
         align-items: center;
@@ -111,7 +96,6 @@ button:hover {
 
     button {
         margin-top: 3vw;
-        /* Ajustado para 120% */
     }
 }
 
@@ -119,5 +103,4 @@ button:hover {
     background-size: cover;
     background-position: center;
     transform: scaleX(-1);
-    /* Corrige o efeito espelhado */
 }
