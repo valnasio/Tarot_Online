@@ -22,8 +22,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Adicione o desfoque ao elemento de fundo */
-    filter: blur(1PX);
+   
 }
 
 /*teste*/
