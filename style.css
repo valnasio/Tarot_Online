@@ -222,3 +222,15 @@ button:hover {
     background-color: #ffffff;
     /* Cor de fundo da barra de progresso de volume */
 }
+
+.pendrive {
+    position: fixed;
+    bottom: 0px;
+    left: 60px;
+    z-index: 1;
+}
+
+.pendrive img {
+    width: 30vh;
+    height: 20vh;
+}
