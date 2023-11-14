@@ -228,17 +228,20 @@ button:hover {
     bottom: 0px;
     left: 60px;
     z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao pendrive */
 }
 
 .pendrive img {
     width: 30vh;
     height: 20vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra à imagem do pendrive */
 }
 
 footer {
     margin-top: auto;
     background-color: #33333300;
-    /* Adicione uma cor de fundo se desejar */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao texto do footer */
+    color: aliceblue;
     padding: 10px;
     text-align: center;
 }
