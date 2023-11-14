@@ -228,13 +228,14 @@ button:hover {
     bottom: 0px;
     left: 60px;
     z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao pendrive */
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
 .pendrive img {
     width: 30vh;
-    height: 20vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra à imagem do pendrive */
+    height: 24vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+}
 }
 footer {
     margin-top: auto;
