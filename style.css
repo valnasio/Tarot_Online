@@ -239,8 +239,10 @@ button:hover {
 
 footer {
     margin-top: auto;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao texto do footer */
-    color:  rgba(43, 42, 42, 0.993);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Adiciona uma sombra ao texto do footer */
+    color: rgb(255, 255, 255);
     padding: 10px;
     text-align: center;
+    text-shadow: 0 3px 6px rgba(90, 90, 90, 0.993);
 }
