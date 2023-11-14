@@ -236,7 +236,6 @@ button:hover {
     height: 20vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra à imagem do pendrive */
 }
-
 footer {
     margin-top: auto;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -244,5 +243,5 @@ footer {
     color: rgb(255, 255, 255);
     padding: 10px;
     text-align: center;
-    text-shadow: 0 3px 6px rgba(90, 90, 90, 0.993);
+    text-shadow: 0 3px 6px rgba(10, 10, 10, 0.993);
 }
