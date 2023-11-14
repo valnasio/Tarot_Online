@@ -76,8 +76,8 @@ body {
 button {
     background: linear-gradient(to bottom, #bdb5b5, #ffffff);
     color: #8E7A56;
-    padding: 1.2vw 2.4vw;
-    font-size: 1.2vw;
+    padding: 0.8vw 0.8vw;
+    font-size: 0.9vw;
     border: none;
     border-radius: 5px;
     cursor: pointer;
