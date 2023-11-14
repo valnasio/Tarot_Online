@@ -246,3 +246,10 @@ footer {
     text-align: center;
     text-shadow: 0 3px 6px rgba(10, 10, 10, 0.993);
 }
+.google-ads-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 2; /* Ajuste conforme necessário */
+}
