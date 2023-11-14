@@ -78,7 +78,8 @@ body {
 
 button {
     background: linear-gradient(to bottom, rgba(189, 181, 181, 0.507), rgba(255, 255, 255, 0.8));
-    color: #8E7A56;
+    color: #d4aa5a;
+    text-shadow: 0 3px 6px rgba(10, 10, 10, 0.993);
     padding: 0.8vw 0.8vw;
     font-size: 0.9vw;
     border: none;
@@ -91,7 +92,6 @@ button:hover {
     color: #000000;
     background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
 }
-
 
 @media (max-width: 600px) {
     .card-container {
