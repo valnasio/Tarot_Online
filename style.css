@@ -234,3 +234,11 @@ button:hover {
     width: 30vh;
     height: 20vh;
 }
+
+footer {
+    margin-top: auto;
+    background-color: #33333300;
+    /* Adicione uma cor de fundo se desejar */
+    padding: 10px;
+    text-align: center;
+}
