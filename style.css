@@ -19,11 +19,9 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(1.2px);
-    
-    
-    
+    filter: blur(2px);
 }
+
 
 .card-container {
     display: flex;
@@ -31,6 +29,7 @@ body {
     flex-wrap: wrap;
     margin-top: 3vw;
 }
+
 
 .card {
     width: 293px;
@@ -48,6 +47,9 @@ body {
     perspective: 1000px;
 }
 
+
+
+
 .front,
 .back {
     position: absolute;
@@ -61,19 +63,20 @@ body {
     background-position: center;
 }
 
-@media (max-heigh: 400px) {
 
-    .front {
-        display: none;
-        background-size: contain;
-        background-position: center;
-    }
+
+
+.front {
+    display: none;
+    background-size: contain;
+    background-position: center;
 }
 
 
 .card.flipped {
     transform: rotateY(180deg);
 }
+
 
 .button-container {
     text-align: center;
@@ -100,7 +103,8 @@ body {
     }
 }
 
-@media (max-width: 600px) {
+/* Media Query para telas menores */
+@media (max-width: 400px) {
     .card-container {
         flex-direction: column;
         align-items: center;
@@ -109,13 +113,15 @@ body {
     button {
         margin-top: 3vw;
     }
+
+
+    .card .front {
+        background-size: cover;
+        background-position: center;
+        transform: scaleX(-1);
+    }
 }
 
-.card .front {
-    background-size: cover;
-    background-position: center;
-    transform: scaleX(-1);
-}
 /* Estilo para o player de áudio no rodapé */
 .audio-player {
     position: fixed;
@@ -234,6 +240,8 @@ body {
     background-color: #ffffff;
     /* Cor de fundo da barra de progresso de volume */
 }
+
+
 
 
 footer {
