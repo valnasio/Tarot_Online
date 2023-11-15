@@ -34,17 +34,8 @@ function shuffle(array) {
 }
 
 function shuffleCards() {
-    // Adicionado para exibir primeiro o back antes de embaralhar as imagens
-    cards.forEach(card => {
-        card.classList.remove('flipped');
-        card.querySelector('.front').style.display = 'none';
-        card.querySelector('.back').style.display = 'block';
-    });
-
-    setTimeout(() => {
-        shuffle(allImages);
-        updateCardImages();
-    }, 500); // Tempo de espera para exibir o back antes de embaralhar as imagens
+    shuffle(allImages);
+    updateCardImages();
 }
 
 function updateCardImages() {
@@ -74,19 +65,33 @@ function resetGame(askForQuantity = true) {
         cardContainer.appendChild(card);
         cards.push(card);
     }
-
-    // Zerar a quantidade para que seja solicitada novamente no próximo reset
-    numberOfCards = null;
 }
 
 function flipCard(card) {
     card.classList.toggle('flipped');
+
     // Adicionado para garantir que a classe 'flipped' só altere o estado, sem alterar o conteúdo
-    card.querySelector('.front').style.display = card.classList.contains('flipped') ? 'block' : 'none';
-    card.querySelector('.back').style.display = card.classList.contains('flipped') ? 'none' : 'block';
+    const front = card.querySelector('.front');
+    const back = card.querySelector('.back');
+
+    if (card.classList.contains('flipped')) {
+        front.style.display = 'block';
+        back.style.display = 'none';
+    } else {
+        front.style.display = 'none';
+        back.style.display = 'block';
+    }
 }
 
-shuffleButton.addEventListener('click', shuffleCards);
+shuffleButton.addEventListener('click', () => {
+    shuffleCards();
+    // Após embaralhar, ocultar a frente e exibir o verso de todas as cartas
+    cards.forEach(card => {
+        card.classList.remove('flipped');
+        card.querySelector('.front').style.display = 'none';
+        card.querySelector('.back').style.display = 'block';
+    });
+});
 resetButton.addEventListener('click', () => resetGame(true));
 
 // Pede a quantidade de cartas apenas na primeira vez
