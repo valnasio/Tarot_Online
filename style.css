@@ -61,7 +61,7 @@ body {
     background-position: center;
 }
 
-.@media (max-heigh: 400px) {
+@media (max-heigh: 400px) {
 
     .front {
         display: none;
