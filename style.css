@@ -228,20 +228,7 @@ button:hover {
     /* Cor de fundo da barra de progresso de volume */
 }
 
-.pendrive {
-    position: fixed;
-    bottom: 0px;
-    left: 60px;
-    z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
-.pendrive img {
-    width: 30vh;
-    height: 24vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    
-}
-}
 footer {
     margin-top: auto;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
