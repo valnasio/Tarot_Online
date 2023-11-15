@@ -53,11 +53,19 @@ function resetGame(askForQuantity = true) {
             alert("Por favor, insira um número válido de cartas.");
             return;
         }
+    } else {
+        numberOfCards = 0;
     }
 
     // Remover todas as cartas existentes
     cards.forEach(card => card.remove());
     cards = [];
+
+    // Adicionar verificação para exibir mensagem quando numberOfCards for 0
+    if (numberOfCards === 0) {
+        alert("Clique em iniciar e insira o número de cartas.");
+        return;
+    }
 
     for (let i = 0; i < numberOfCards; i++) {
         const randomNumber = allImages[i];
@@ -84,14 +92,16 @@ function flipCard(card) {
 }
 
 shuffleButton.addEventListener('click', () => {
-    shuffleCards();
-    // Após embaralhar, ocultar a frente e exibir o verso de todas as cartas
+    // Ocultar a frente e exibir o verso de todas as cartas antes de embaralhar
     cards.forEach(card => {
         card.classList.remove('flipped');
         card.querySelector('.front').style.display = 'none';
         card.querySelector('.back').style.display = 'block';
     });
+
+    shuffleCards();
 });
+
 resetButton.addEventListener('click', () => resetGame(true));
 
 // Pede a quantidade de cartas apenas na primeira vez
