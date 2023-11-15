@@ -344,8 +344,11 @@ button {
     /* Cor de fundo da barra de progresso de volume */
 }
 
-
-
+@media (max-width: 600px) {
+    .audio-player {
+        display: none;
+    }
+}
 
 footer {
     margin-top: auto;
