@@ -22,11 +22,74 @@ body {
     filter: blur(2px);
 }
 
+@media(max-width:400px) {
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 3vw;
+    }
+
+
+    .card {
+        width: 80px;
+        height: 120px;
+        margin: 1.3vw;
+        cursor: pointer;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.7s ease-in-out;
+        background-color: rgba(0, 0, 0, 0);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 100px;
+    }
+
+
+
+
+    .front,
+    .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+
+
+
+    .front {
+        display: none;
+        background-size: contain;
+        background-position: center;
+    }
+
+
+    .card.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .button-container {
+        text-align: center;
+        margin-top: 2vw;
+    }
+
+
+}
 
 .card-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 3vw;
 }
 
@@ -77,31 +140,39 @@ body {
     transform: rotateY(180deg);
 }
 
-
 .button-container {
     text-align: center;
     margin-top: 3vw;
 }
+
+
 button {
-        margin-top: 3vh;
-        background: linear-gradient(to bottom, rgba(253, 253, 253, 0.575), rgba(255, 255, 255, 0.8));
-        color: #754d02;
-        text-shadow: 0 3px 6px rgba(10, 10, 10, 0.349);
-        padding: 0.5vw 0.3vw;
-        font-size: 0.9vw;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease-in-out;
+    margin-top: 3vh;
+    background: linear-gradient(to bottom, rgba(253, 253, 253, 0.575), rgba(255, 255, 255, 0.8));
+    color: #754d02;
+    text-shadow: 0 3px 6px rgba(10, 10, 10, 0.349);
+    padding: 0.5vw 0.3vw;
+    font-size: 0.9vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    color: #000000;
+    background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
+}
+
+@media (max-width: 400px) {
+    .button-container {
+        text-align: center;
+        margin-top: 3vw;
     }
 
-    button:hover {
-        color: #000000;
-        background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
-    }
-@media (max-width: 400px) {
+
     button {
-         margin-top: 3vh;
+        margin-top: 3vh;
         background: linear-gradient(to bottom, rgba(253, 253, 253, 0.575), rgba(255, 255, 255, 0.8));
         color: #754d02;
         text-shadow: 0 3px 6px rgba(10, 10, 10, 0.349);
@@ -118,21 +189,23 @@ button {
         background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
     }
 }
- .card-container {
-        flex-direction: rown;
-        align-items: center;
-    }
 
-    button {
-        margin-top: 3vw;
-    }
+.card-container {
+    flex-direction: row;
+    align-items: center;
+}
+
+button {
+    margin-top: 3vw;
+}
 
 
-    .card .front {
-        background-size: cover;
-        background-position: center;
-        transform: scaleX(-1);
-    }
+.card .front {
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+}
+
 /* Media Query para telas menores */
 @media (max-width: 400px) {
     .card-container {
