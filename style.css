@@ -82,7 +82,23 @@ body {
     text-align: center;
     margin-top: 3vw;
 }
+button {
+        margin-top: 3vh;
+        background: linear-gradient(to bottom, rgba(253, 253, 253, 0.575), rgba(255, 255, 255, 0.8));
+        color: #754d02;
+        text-shadow: 0 3px 6px rgba(10, 10, 10, 0.349);
+        padding: 0.5vw 0.3vw;
+        font-size: 0.9vw;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
 
+    button:hover {
+        color: #000000;
+        background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
+    }
 @media (max-width: 400px) {
     button {
         margin-top: 3vh;
@@ -102,7 +118,21 @@ body {
         background: linear-gradient(to bottom, rgba(175, 175, 175, 0.308), rgba(95, 95, 95, 0.8));
     }
 }
+ .card-container {
+        flex-direction: rown;
+        align-items: center;
+    }
 
+    button {
+        margin-top: 3vw;
+    }
+
+
+    .card .front {
+        background-size: cover;
+        background-position: center;
+        transform: scaleX(-1);
+    }
 /* Media Query para telas menores */
 @media (max-width: 400px) {
     .card-container {
