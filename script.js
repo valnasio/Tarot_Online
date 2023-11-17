@@ -17,10 +17,10 @@ function createCard(image) {
     const back = document.createElement('div');
     back.classList.add('back');
     back.style.backgroundImage = 'url("images/background.png")';
-
+    
     card.appendChild(front);
     card.appendChild(back);
-
+     updateCardImages();//alteração
     card.addEventListener('click', () => flipCard(card));
  
 
@@ -31,7 +31,7 @@ function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
-          updateCardImages();//alteração
+          
     }
  
 }
