@@ -22,6 +22,7 @@ function createCard(image) {
     card.appendChild(back);
 
     card.addEventListener('click', () => flipCard(card));
+    updateCardImages();//alteração
 
     return card;
 }
@@ -31,7 +32,7 @@ function shuffle(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    updateCardImages();//alteração
+ 
 }
 
 function shuffleCards() {
