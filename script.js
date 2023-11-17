@@ -22,7 +22,7 @@ function createCard(image) {
     card.appendChild(back);
 
     card.addEventListener('click', () => flipCard(card));
-    updateCardImages();//alteração
+ 
 
     return card;
 }
@@ -87,6 +87,7 @@ function flipCard(card) {
     if (card.classList.contains('flipped')) {
         front.style.display = 'block';
         back.style.display = 'none';
+           updateCardImages();//alteração
     } else {
         front.style.display = 'none';
         back.style.display = 'block';
