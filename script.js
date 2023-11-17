@@ -1,7 +1,7 @@
 const cardContainer = document.getElementById('card-container');
 const shuffleButton = document.getElementById('shuffle-button');
 const resetButton = document.getElementById('reset-button');
-
+console.log("subiu");
 let allImages = Array.from({ length: 78 }, (_, i) => i + 1); // Array de números representando as imagens
 let cards = [];
 let numberOfCards;
