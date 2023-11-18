@@ -4,7 +4,7 @@ const resetButton = document.getElementById('reset-button');
 let allImages = Array.from({ length: 78 }, (_, i) => i + 1);
 let cards = [];
 let numberOfCards;
-console.log("FUNCINOU!!!!");
+
 // Função para criar uma carta com a frente oculta
 function createCard(image) {
     const card = document.createElement('div');
@@ -13,7 +13,6 @@ function createCard(image) {
     const front = document.createElement('div');
     front.classList.add('front');
     front.style.backgroundImage = `url('images/c${image}.png')`;
-    front.style.display = 'none'; // Adiciona esta linha para ocultar a frente inicialmente
 
     const back = document.createElement('div');
     back.classList.add('back');
@@ -46,6 +45,10 @@ function shuffleAndCreateCards() {
         const card = createCard(randomNumber);
         cardContainer.appendChild(card);
         cards.push(card);
+
+        // Oculta a frente e exibe o verso de todas as cartas ao iniciar
+        card.querySelector('.front').style.display = 'none';
+        card.querySelector('.back').style.display = 'block';
     }
 }
 
@@ -93,6 +96,7 @@ function resetGame(askForQuantity = true) {
 // Função para virar a carta quando clicada
 function flipCard(card) {
     card.classList.toggle('flipped');
+console.log("FIZ A BOA");
 
     // Adicionado para garantir que a classe 'flipped' só altere o estado, sem alterar o conteúdo
     const front = card.querySelector('.front');
