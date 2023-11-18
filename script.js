@@ -4,7 +4,7 @@ const resetButton = document.getElementById('reset-button');
 let allImages = Array.from({ length: 78 }, (_, i) => i + 1);
 let cards = [];
 let numberOfCards;
-console.log("FUNCINOU!!!!")
+console.log("FUNCINOU!!!!");
 // Função para criar uma carta com a frente oculta
 function createCard(image) {
     const card = document.createElement('div');
