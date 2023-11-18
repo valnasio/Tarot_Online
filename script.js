@@ -4,7 +4,7 @@ const resetButton = document.getElementById('reset-button');
 let allImages = Array.from({ length: 78 }, (_, i) => i + 1);
 let cards = [];
 let numberOfCards;
-console.log("solucionado!!!");
+console.log("decima tentativa");
 // Função para criar uma carta com a frente oculta
 function createCard(image) {
     const card = document.createElement('div');
@@ -13,7 +13,6 @@ function createCard(image) {
     const front = document.createElement('div');
     front.classList.add('front');
     front.style.backgroundImage = `url('images/c${image}.png')`;
-    front.style.display = 'none'; // Adiciona esta linha para ocultar a frente inicialmente
 
     const back = document.createElement('div');
     back.classList.add('back');
@@ -46,11 +45,13 @@ function shuffleAndCreateCards() {
         const card = createCard(randomNumber);
         cardContainer.appendChild(card);
         cards.push(card);
+    }
 
-        // Exibe o verso de todas as cartas ao iniciar
+    // Exibe o verso de todas as cartas ao iniciar
+    cards.forEach(card => {
         card.querySelector('.front').style.display = 'none';
         card.querySelector('.back').style.display = 'block';
-    }
+    });
 }
 
 // Função para atualizar as imagens das cartas
@@ -85,13 +86,6 @@ function resetGame(askForQuantity = true) {
     }
 
     shuffleAndCreateCards(); // Chama a função para embaralhar as cartas ao reiniciar
-
-    // Exibe todas as cartas viradas ao reiniciar
-    cards.forEach(card => {
-        card.classList.add('flipped');
-        card.querySelector('.front').style.display = 'block';
-        card.querySelector('.back').style.display = 'none';
-    });
 }
 
 // Função para virar a carta quando clicada
